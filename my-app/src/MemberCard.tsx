@@ -1,5 +1,5 @@
 import type React from "react"
-import "./MemberCard.css";
+import "./MemberCard.css";;
 
 // Author: Esther Mushimiyimana
 // Author: Bonae Ineza — Task 41: Full Member interface, now shared with TeamDashboard

@@ -1,6 +1,9 @@
 /* Author : Bonae Ineza */
 
+/* Author: Erica Ishimwe */
+
 /* MemberCard.css */
+
 .member-card {
   padding: 16px 20px;
   border: 1px solid #ddd;
@@ -9,6 +12,7 @@
   background-color: #fafafa;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+
 .member-name {
   font-size: 1.2rem;
   margin: 0 0 4px 0;
@@ -32,15 +36,39 @@
   color: #777;
   margin-top: 8px;
 }
+
 .member-heading {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 .active {
-  border-left: 4px solid #22c55e; /* green */
+  border-left: 4px solid #22c55e;
 }
 
 .inactive {
-  border-left: 4px solid #9ca3af; /* gray */
+  border-left: 4px solid #9ca3af;
   opacity: 0.85;
+}
+
+/* Author: Erica Ishimwe */
+
+@media (max-width: 600px) {
+  .member-card {
+    padding: 12px;
+    margin-bottom: 10px;
+  }
+
+  .member-name {
+    font-size: 1rem;
+  }
+
+  .member-role {
+    font-size: 0.85rem;
+  }
+
+  .member-tasks,
+  .member-status {
+    font-size: 0.8rem;
+  }
 }

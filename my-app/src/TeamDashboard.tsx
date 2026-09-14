@@ -3,9 +3,13 @@
 import React, { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import MemberCard from "./MemberCard";
+<<<<<<< HEAD
 import type { Member } from "./MemberCard";
+=======
+import "./TeamDashboard.css";
+>>>>>>> c252b19 (Complete component styling and responsive dashboard layout)
 
-// Task 20: Type interface for array items - Esther Mushimiyimana
+// Esther Mushimiyimana
 interface MemberData {
     name: string;
     role?: string;
@@ -17,22 +21,27 @@ interface MemberData {
 
 const TeamDashboard: React.FC = () => {
 
-    // Author: Erica Ishimwe 
+    // Erica Ishimwe
     const [teamScore, setTeamScore] = useState<number>(0);
 
-    // Author: Erica Ishimwe 
+    // Erica Ishimwe
     const [newMemberName, setNewMemberName] = useState<string>("");
 
+<<<<<<< HEAD
     // Esther Mushimiyimana - Task 20: Typed data array of members
     // Author: Bonae Ineza — moved into typed useState, and gave each member an id
     const [teamMembers, setTeamMembers] = useState<Member[]>([
+=======
+    // Esther Mushimiyimana
+    const teamMembers: MemberData[] = [
+>>>>>>> c252b19 (Complete component styling and responsive dashboard layout)
         {
             id: 1,
             name: "Kadi Koita",
             role: "Backend Developer",
             taskCompleted: 5,
             isActive: true,
-            bio: "Specializes in Node.js and API architecture." // Task 17
+            bio: "Specializes in Node.js and API architecture."
         },
         {
             id: 2,
@@ -40,20 +49,17 @@ const TeamDashboard: React.FC = () => {
             role: "Frontend Developer",
             taskCompleted: 3,
             isActive: false,
-            bio: "Passionate about React component design." // Task 17
+            bio: "Passionate about React component design."
         },
         {
             id: 3,
             name: "Alex Johnson",
-            // role omitted to test Task 19 default parameter
             taskCompleted: 1,
             isActive: true
-            // bio omitted to test Task 18 optional rendering
         }
     ]);
 
-    // Author: Erica Ishimwe 
-    // Author: Bonae Ineza  Add the submitted name as a new member in state
+    // Erica Ishimwe
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -77,15 +83,14 @@ const TeamDashboard: React.FC = () => {
         );
     };
 
-
     return (
         <>
             <h1>Team Dashboard Component</h1>
 
-            {/* Author: Erica Ishimwe */}
+            {/* Erica Ishimwe */}
             <p>Team Score: {teamScore}</p>
 
-            {/* Author: Erica Ishimwe */}
+            {/* Erica Ishimwe */}
             <button
                 onClick={() =>
                     setTeamScore((currentScore) => currentScore + 1)
@@ -94,7 +99,7 @@ const TeamDashboard: React.FC = () => {
                 Increase Score
             </button>
 
-            {/* Author: Erica Ishimwe - Task 35 */}
+            {/* Erica Ishimwe */}
             <button
                 onClick={() =>
                     setTeamScore((currentScore) =>
@@ -103,9 +108,9 @@ const TeamDashboard: React.FC = () => {
                 }
             >
                 Decrease Score
-            </button> 
+            </button>
 
-            {/* Author: Erica Ishimwe */}
+            {/* Erica Ishimwe */}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -119,6 +124,7 @@ const TeamDashboard: React.FC = () => {
                 <button type="submit">Submit</button>
             </form>
 
+<<<<<<< HEAD
             {/* Author : Kadi Matou Koita, Ineza Bonae, Esther Mushimiyimana */}
             {/* Task 20: Render components from typed array using .map() */}
             {/* Author: Bonae Ineza - pass id and onRemove down as typed callback props */}
@@ -134,6 +140,21 @@ const TeamDashboard: React.FC = () => {
                     onRemove={handleRemoveMember}
                 />
             ))}
+=======
+            {/* Kadi Matou Koita, Ineza Bonae, Esther Mushimiyimana */}
+            <div className="dashboard">
+                {teamMembers.map((member, index) => (
+                    <MemberCard
+                        key={index}
+                        name={member.name}
+                        role={member.role}
+                        taskCompleted={member.taskCompleted}
+                        isActive={member.isActive}
+                        bio={member.bio}
+                    />
+                ))}
+            </div>
+>>>>>>> c252b19 (Complete component styling and responsive dashboard layout)
         </>
     );
 };
