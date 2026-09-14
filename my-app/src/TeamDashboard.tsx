@@ -52,9 +52,22 @@ const TeamDashboard: React.FC = () => {
     ]);
 
     // Author: Erica Ishimwe 
+    // Author: Bonae Ineza  Add the submitted name as a new member in state
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        alert(`New member name: ${newMemberName}`);
+
+        if (newMemberName.trim() === "") return;
+
+        const newMember: Member = {
+            id: Date.now(),
+            name: newMemberName,
+            taskCompleted: 0,
+            isActive: true,
+        };
+
+        // added to state triggers a re-render
+        setTeamMembers((currentMembers) => [...currentMembers, newMember]);
+        setNewMemberName("");
     };
 
 
