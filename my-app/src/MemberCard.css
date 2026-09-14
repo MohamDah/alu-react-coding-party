@@ -1,0 +1,10 @@
+/* Author : Bonae Ineza */
+
+/* MemberCard.css */
+.member-card {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background-color: #fafafa;
+}
