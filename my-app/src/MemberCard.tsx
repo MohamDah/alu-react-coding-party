@@ -16,7 +16,7 @@ interface MemberCardProps {
 const MemberCard: React.FC<MemberCardProps> = ({ name, role = "Software Developer", taskCompleted, isActive, bio }) => {
     return (
         /*Added classnames, Author: Bonae Ineza */
-        <div className= "member-card">
+        <div className={`member-card ${isActive ? "active" : "inactive"}`}>
             <h1 className="member-name member-heading">Name: {name}</h1>
             <h2 className="member-role">Role: {role}</h2>
             <p className="member-tasks">Tasks Completed: {taskCompleted}</p>
@@ -29,7 +29,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ name, role = "Software Develope
             
             {/* Author: Erica Ishimwe  */}
              {/* Author: Bonae Ineza  */}
-            <p className="member-active">Active: {isActive.toString()}</p>
+            {/* <p className="member-active">Active: {isActive.toString()}</p> */}
         </div>
     )
 }

@@ -36,3 +36,11 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+.active {
+  border-left: 4px solid #22c55e; /* green */
+}
+
+.inactive {
+  border-left: 4px solid #9ca3af; /* gray */
+  opacity: 0.85;
+}
