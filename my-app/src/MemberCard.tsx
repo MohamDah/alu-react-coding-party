@@ -15,19 +15,20 @@ interface MemberCardProps {
 // Esther Mushimiyimana
 const MemberCard: React.FC<MemberCardProps> = ({ name, role = "Software Developer", taskCompleted, isActive, bio }) => {
     return (
-        <div>
-            <h1>Name: {name}</h1>
-            <h2>Role: {role}</h2>
-            <p>Tasks Completed: {taskCompleted}</p>
+        <div className= "member-card">
+             <h1 className="member-name">Name: {name}</h1>
+            <h2 className="member-role">Role: {role}</h2>
+            <p className="member-tasks">Tasks Completed: {taskCompleted}</p>
 
             {/* Task 16: Display Active or Inactive based on isActive, Esther */}
-            <p>Status: {isActive ? "Active" : "Inactive"}</p> 
+            <p className="member-status">Status: {isActive ? "Active" : "Inactive"}</p> 
 
             {/* Task 18: Display bio conditionally */}
-            {bio && <p>Bio: {bio}</p>}
+            {bio && <p className="member-bio">Bio: {bio}</p>}
             
-            {/* Author: Erica Ishimwe */}
-            <p>Active: {isActive.toString()}</p>
+            {/* Author: Erica Ishimwe  */}
+             {/* Author: Bonae Ineza  */}
+            <p className="member-active">Active: {isActive.toString()}</p>
         </div>
     )
 }
