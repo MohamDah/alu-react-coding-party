@@ -15,8 +15,8 @@ const TeamDashboard: React.FC = () => {
         {/* Author: Erica Ishimwe */}
         <p>Team Score: {teamScore}</p>
 
-        {/* Author: Erica Ishimwe */}
-<button onClick={() => setTeamScore(teamScore + 1)}>
+        {/* Author: Erica Ishimwe  */}
+<button onClick={() => setTeamScore((currentScore) => currentScore + 1)}>
     Increase Score
 </button>
 
