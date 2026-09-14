@@ -2,6 +2,16 @@ import type React from "react"
 import "./MemberCard.css";
 
 // Author: Esther Mushimiyimana
+// Author: Bonae Ineza — Task 41: Full Member interface, now shared with TeamDashboard
+export interface Member {
+    id: number;
+    name: string;
+    role?: string;
+    taskCompleted: number;
+    isActive: boolean;
+    bio?: string;
+}
+
 interface MemberCardProps {
     name: string
     role?: string

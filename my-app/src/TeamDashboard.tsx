@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import MemberCard from "./MemberCard";
+import type { Member } from "./MemberCard";
 
 // Task 20: Type interface for array items - Esther Mushimiyimana
 interface MemberData {
@@ -22,8 +23,10 @@ const TeamDashboard: React.FC = () => {
     const [newMemberName, setNewMemberName] = useState<string>("");
 
     // Esther Mushimiyimana - Task 20: Typed data array of members
-    const teamMembers: MemberData[] = [
+    // Author: Bonae Ineza — Task 42: moved into typed useState, and gave each member an id
+    const [teamMembers, setTeamMembers] = useState<Member[]>([
         {
+            id: 1,
             name: "Kadi Koita",
             role: "Backend Developer",
             taskCompleted: 5,
@@ -31,6 +34,7 @@ const TeamDashboard: React.FC = () => {
             bio: "Specializes in Node.js and API architecture." // Task 17
         },
         {
+            id: 2,
             name: "Esther",
             role: "Frontend Developer",
             taskCompleted: 3,
@@ -38,13 +42,14 @@ const TeamDashboard: React.FC = () => {
             bio: "Passionate about React component design." // Task 17
         },
         {
+            id: 3,
             name: "Alex Johnson",
             // role omitted to test Task 19 default parameter
             taskCompleted: 1,
             isActive: true
             // bio omitted to test Task 18 optional rendering
         }
-    ];
+    ]);
 
     // Author: Erica Ishimwe 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
