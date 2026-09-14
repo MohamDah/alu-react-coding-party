@@ -8,11 +8,17 @@ import "./TeamDashboard.css";
 
 const TeamDashboard: React.FC = () => {
 
-    // Erica Ishimwe
+    //Author: Erica Ishimwe
     const [teamScore, setTeamScore] = useState<number>(0);
 
-    // Erica Ishimwe
+    //Author: Erica Ishimwe
     const [newMemberName, setNewMemberName] = useState<string>("");
+
+    // Author: Bonae Ineza - Search state for filtering by name
+    const [searchTerm, setSearchTerm] = useState<string>("");
+
+    // Author: Bonae Ineza - Filter state: All, Active, or Inactive
+    const [filter, setFilter] = useState<"All" | "Active" | "Inactive">("All");
 
     // Esther Mushimiyimana
     // Author: Bonae Ineza - moved into typed useState, and gave each member an id
@@ -40,6 +46,17 @@ const TeamDashboard: React.FC = () => {
             isActive: true
         }
     ]);
+
+    // Author: Bonae Ineza - Apply the selected filter, then narrow by search term
+    const visibleMembers = teamMembers
+        .filter((member) => {
+            if (filter === "Active") return member.isActive;
+            if (filter === "Inactive") return !member.isActive;
+            return true;
+        })
+        .filter((member) =>
+            member.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
 
     // Erica Ishimwe
     // Author: Bonae Ineza - Add the submitted name as a new member in state
@@ -117,10 +134,27 @@ const TeamDashboard: React.FC = () => {
                 <button type="submit">Submit</button>
             </form>
 
+            {/* Author: Bonae Ineza - Filter controls for All / Active / Inactive */}
+            <div>
+                <button onClick={() => setFilter("All")}>All</button>
+                <button onClick={() => setFilter("Active")}>Active</button>
+                <button onClick={() => setFilter("Inactive")}>Inactive</button>
+            </div>
+
+            {/* Author: Bonae Ineza - Search input, filters members by name */}
+            <input
+                type="text"
+                value={searchTerm}
+                onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                    setSearchTerm(event.target.value)
+                }
+                placeholder="Search members by name"
+            />
+
             {/* Kadi Matou Koita, Ineza Bonae, Esther Mushimiyimana */}
             {/* Author: Bonae Ineza - pass id, onRemove, and onToggleActive down as typed callback props */}
             <div className="dashboard">
-                {teamMembers.map((member) => (
+                {visibleMembers.map((member) => (
                     <MemberCard
                         key={member.id}
                         id={member.id}
