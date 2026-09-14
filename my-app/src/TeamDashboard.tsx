@@ -8,6 +8,9 @@ const TeamDashboard: React.FC = () => {
     // Author: Erica Ishimwe 
     const [teamScore, setTeamScore] = useState<number>(0);
 
+    // Author: Erica Ishimwe 
+const [newMemberName, setNewMemberName] = useState<string>("");
+
     return (
         <>
             <h1>Team Dashboard Component</h1>
@@ -33,7 +36,15 @@ const TeamDashboard: React.FC = () => {
                 }
             >
                 Decrease Score
-            </button>
+            </button> 
+
+            {/* Author: Erica Ishimwe - Task 37 */}
+        <input
+            type="text"
+            value={newMemberName}
+            onChange={(event) => setNewMemberName(event.target.value)}
+            placeholder="Enter new member name"
+            />
 
             {/* Author :Kadi Matou Koita */}
             {/* Autor : Ineza Bonae : added task completed to the member card component */}
