@@ -8,3 +8,26 @@
   margin-bottom: 12px;
   background-color: #fafafa;
 }
+.member-name {
+  font-size: 1.2rem;
+  margin: 0 0 4px 0;
+  color: #222;
+}
+
+.member-role {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 0 0 8px 0;
+}
+
+.member-tasks,
+.member-status {
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+.member-bio {
+  font-style: italic;
+  color: #777;
+  margin-top: 8px;
+}
