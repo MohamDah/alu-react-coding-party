@@ -8,8 +8,19 @@ const TeamDashboard: React.FC = () => {
         <h1>Team Dashboard Component</h1>
         {/* Author :Kadi Matou Koita */}
         {/* Autor : Ineza Bonae : added task completed to the member card component */}
-        <MemberCard  name="Kadi Koita" role="Backend Developer" taskCompleted={5} />
-        <MemberCard  name="Esther" role="Frontend Developer" taskCompleted={3} />
+        <MemberCard
+    name="Kadi Koita"
+    role="Backend Developer"
+    taskCompleted={5}
+    isActive={true}
+/>
+
+<MemberCard
+    name="Esther"
+    role="Frontend Developer"
+    taskCompleted={3}
+    isActive={false}
+/>
     </>
 }
 

@@ -4,7 +4,8 @@ import type React from "react"
 interface MemberCardProps {
     name: string
     role: string
-    taskCompleted:number;
+    taskCompleted:number
+    isActive: boolean;
 }
 
 // Author: Mohamed Dahab
@@ -15,6 +16,10 @@ const MemberCard: React.FC<MemberCardProps> = ({name, role, taskCompleted}) => {
         <h1>Name: {name}</h1>
         <h2>Role: {role}</h2>
         <p>Tasks Completed: {taskCompleted}</p>
+        
+// Author: Erica Ishimwe 
+
+<p>Active: {isActive.toString()}</p>
     </div>
     )
 }
