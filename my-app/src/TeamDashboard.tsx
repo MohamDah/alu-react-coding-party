@@ -11,8 +11,15 @@ const TeamDashboard: React.FC = () => {
     return <>
 
         <h1>Team Dashboard Component</h1>
+
         {/* Author: Erica Ishimwe */}
         <p>Team Score: {teamScore}</p>
+
+        {/* Author: Erica Ishimwe */}
+<button onClick={() => setTeamScore(teamScore + 1)}>
+    Increase Score
+</button>
+
         {/* Author :Kadi Matou Koita */}
         {/* Autor : Ineza Bonae : added task completed to the member card component */}
         <MemberCard
