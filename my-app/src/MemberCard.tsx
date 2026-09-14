@@ -19,7 +19,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ name, role = "Software Develope
         <div className={`member-card ${isActive ? "active" : "inactive"}`}>
             <h1 className="member-name member-heading">Name: {name}</h1>
             <h2 className="member-role">Role: {role}</h2>
-            <p className="member-tasks">Tasks Completed: {taskCompleted}</p>
+            <p className="member-tasks" style={{ fontWeight: "bold" }}>Tasks Completed: {taskCompleted}</p>
 
             {/* Task 16: Display Active or Inactive based on isActive, Esther */}
             <p className="member-status">Status: {isActive ? "Active" : "Inactive"}</p> 
