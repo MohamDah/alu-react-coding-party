@@ -1,6 +1,7 @@
 // Author: Mohamed Dahab
 
 import React, { useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";;
 import MemberCard from "./MemberCard";
 
 const TeamDashboard: React.FC = () => {
@@ -10,6 +11,13 @@ const TeamDashboard: React.FC = () => {
 
     // Author: Erica Ishimwe 
 const [newMemberName, setNewMemberName] = useState<string>("");
+
+    // Author: Erica Ishimwe 
+const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    alert(`New member name: ${newMemberName}`);
+};
 
     return (
         <>
@@ -38,13 +46,19 @@ const [newMemberName, setNewMemberName] = useState<string>("");
                 Decrease Score
             </button> 
 
-            {/* Author: Erica Ishimwe - Task 37 */}
-        <input
-            type="text"
-            value={newMemberName}
-            onChange={(event) => setNewMemberName(event.target.value)}
-            placeholder="Enter new member name"
-            />
+            {/* Author: Erica Ishimwe */}
+       <form onSubmit={handleSubmit}>
+    <input
+        type="text"
+        value={newMemberName}
+        onChange={(event: ChangeEvent<HTMLInputElement>) =>
+            setNewMemberName(event.target.value)
+        }
+        placeholder="Enter new member name"
+    />
+
+    <button type="submit">Submit</button>
+</form>
 
             {/* Author :Kadi Matou Koita */}
             {/* Autor : Ineza Bonae : added task completed to the member card component */}
