@@ -15,8 +15,9 @@ interface MemberCardProps {
 // Esther Mushimiyimana
 const MemberCard: React.FC<MemberCardProps> = ({ name, role = "Software Developer", taskCompleted, isActive, bio }) => {
     return (
+        /*Added classnames, Author: Bonae Ineza */
         <div className= "member-card">
-             <h1 className="member-name">Name: {name}</h1>
+            <h1 className="member-name member-heading">Name: {name}</h1>
             <h2 className="member-role">Role: {role}</h2>
             <p className="member-tasks">Tasks Completed: {taskCompleted}</p>
 
