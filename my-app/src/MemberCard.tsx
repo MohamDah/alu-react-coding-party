@@ -1,5 +1,5 @@
 import type React from "react"
-//
+import "./MemberCard.css";
 
 // Author: Esther Mushimiyimana
 interface MemberCardProps {
