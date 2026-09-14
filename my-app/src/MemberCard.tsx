@@ -20,6 +20,7 @@ interface MemberCardProps {
     bio?: string;
     id: number;
     onRemove: (id: number) => void;
+    onToggleActive?: (id: number) => void; 
 }
 
 // Author: Mohamed Dahab

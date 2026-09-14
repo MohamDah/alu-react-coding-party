@@ -3,21 +3,8 @@
 import React, { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import MemberCard from "./MemberCard";
-<<<<<<< HEAD
 import type { Member } from "./MemberCard";
-=======
 import "./TeamDashboard.css";
->>>>>>> c252b19 (Complete component styling and responsive dashboard layout)
-
-// Esther Mushimiyimana
-interface MemberData {
-    name: string;
-    role?: string;
-    taskCompleted: number;
-    isActive: boolean;
-    bio?: string;
-}
-
 
 const TeamDashboard: React.FC = () => {
 
@@ -27,14 +14,9 @@ const TeamDashboard: React.FC = () => {
     // Erica Ishimwe
     const [newMemberName, setNewMemberName] = useState<string>("");
 
-<<<<<<< HEAD
-    // Esther Mushimiyimana - Task 20: Typed data array of members
-    // Author: Bonae Ineza — moved into typed useState, and gave each member an id
-    const [teamMembers, setTeamMembers] = useState<Member[]>([
-=======
     // Esther Mushimiyimana
-    const teamMembers: MemberData[] = [
->>>>>>> c252b19 (Complete component styling and responsive dashboard layout)
+    // Author: Bonae Ineza - moved into typed useState, and gave each member an id
+    const [teamMembers, setTeamMembers] = useState<Member[]>([
         {
             id: 1,
             name: "Kadi Koita",
@@ -60,6 +42,7 @@ const TeamDashboard: React.FC = () => {
     ]);
 
     // Erica Ishimwe
+    // Author: Bonae Ineza - Add the submitted name as a new member in state
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -76,10 +59,20 @@ const TeamDashboard: React.FC = () => {
         setTeamMembers((currentMembers) => [...currentMembers, newMember]);
         setNewMemberName("");
     };
-        // Author: Bonae Ineza - Removing a member  from state by id
+
+    // Author: Bonae Ineza - Removing a member from state by id
     const handleRemoveMember = (id: number) => {
         setTeamMembers((currentMembers) =>
             currentMembers.filter((member) => member.id !== id)
+        );
+    };
+
+    // Author: Bonae Ineza - Toggle a member's active status by id
+    const handleToggleActive = (id: number) => {
+        setTeamMembers((currentMembers) =>
+            currentMembers.map((member) =>
+                member.id === id ? { ...member, isActive: !member.isActive } : member
+            )
         );
     };
 
@@ -124,37 +117,23 @@ const TeamDashboard: React.FC = () => {
                 <button type="submit">Submit</button>
             </form>
 
-<<<<<<< HEAD
-            {/* Author : Kadi Matou Koita, Ineza Bonae, Esther Mushimiyimana */}
-            {/* Task 20: Render components from typed array using .map() */}
-            {/* Author: Bonae Ineza - pass id and onRemove down as typed callback props */}
-            {teamMembers.map((member) => (
-                <MemberCard
-                    key={member.id}
-                    id={member.id}
-                    name={member.name}
-                    role={member.role}
-                    taskCompleted={member.taskCompleted}
-                    isActive={member.isActive}
-                    bio={member.bio}
-                    onRemove={handleRemoveMember}
-                />
-            ))}
-=======
             {/* Kadi Matou Koita, Ineza Bonae, Esther Mushimiyimana */}
+            {/* Author: Bonae Ineza - pass id, onRemove, and onToggleActive down as typed callback props */}
             <div className="dashboard">
-                {teamMembers.map((member, index) => (
+                {teamMembers.map((member) => (
                     <MemberCard
-                        key={index}
+                        key={member.id}
+                        id={member.id}
                         name={member.name}
                         role={member.role}
                         taskCompleted={member.taskCompleted}
                         isActive={member.isActive}
                         bio={member.bio}
+                        onRemove={handleRemoveMember}
+                        onToggleActive={handleToggleActive}
                     />
                 ))}
             </div>
->>>>>>> c252b19 (Complete component styling and responsive dashboard layout)
         </>
     );
 };
