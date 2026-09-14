@@ -11,19 +11,21 @@ export interface Member {
     isActive: boolean;
     bio?: string;
 }
-
+//Author : Bonae Ineza — props now include a typed callback
 interface MemberCardProps {
     name: string
     role?: string
     taskCompleted: number
     isActive: boolean;
     bio?: string;
+    id: number;
+    onRemove: (id: number) => void;
 }
 
 // Author: Mohamed Dahab
 // Author: Bonae Ineza
 // Esther Mushimiyimana
-const MemberCard: React.FC<MemberCardProps> = ({ name, role = "Software Developer", taskCompleted, isActive, bio }) => {
+const MemberCard: React.FC<MemberCardProps> = ({ id, name, role = "Software Developer", taskCompleted, isActive, bio, onRemove }) => {
     return (
         /*Added classnames, Author: Bonae Ineza */
         <div className={`member-card ${isActive ? "active" : "inactive"}`}>
@@ -40,6 +42,9 @@ const MemberCard: React.FC<MemberCardProps> = ({ name, role = "Software Develope
             {/* Author: Erica Ishimwe  */}
              {/* Author: Bonae Ineza  */}
             {/* <p className="member-active">Active: {isActive.toString()}</p> */}
+
+            {/* Author: [YOUR NAME] — Task 45: Remove member button */}
+            <button onClick={() => onRemove(id)}>Remove</button>
         </div>
     )
 }

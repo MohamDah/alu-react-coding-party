@@ -14,6 +14,7 @@ interface MemberData {
     bio?: string;
 }
 
+
 const TeamDashboard: React.FC = () => {
 
     // Author: Erica Ishimwe 
@@ -23,7 +24,7 @@ const TeamDashboard: React.FC = () => {
     const [newMemberName, setNewMemberName] = useState<string>("");
 
     // Esther Mushimiyimana - Task 20: Typed data array of members
-    // Author: Bonae Ineza — Task 42: moved into typed useState, and gave each member an id
+    // Author: Bonae Ineza — moved into typed useState, and gave each member an id
     const [teamMembers, setTeamMembers] = useState<Member[]>([
         {
             id: 1,
@@ -68,6 +69,12 @@ const TeamDashboard: React.FC = () => {
         // added to state triggers a re-render
         setTeamMembers((currentMembers) => [...currentMembers, newMember]);
         setNewMemberName("");
+    };
+        // Author: Bonae Ineza - Removing a member  from state by id
+    const handleRemoveMember = (id: number) => {
+        setTeamMembers((currentMembers) =>
+            currentMembers.filter((member) => member.id !== id)
+        );
     };
 
 
@@ -114,14 +121,17 @@ const TeamDashboard: React.FC = () => {
 
             {/* Author : Kadi Matou Koita, Ineza Bonae, Esther Mushimiyimana */}
             {/* Task 20: Render components from typed array using .map() */}
-            {teamMembers.map((member, index) => (
+            {/* Author: Bonae Ineza - pass id and onRemove down as typed callback props */}
+            {teamMembers.map((member) => (
                 <MemberCard
-                    key={index}
+                    key={member.id}
+                    id={member.id}
                     name={member.name}
                     role={member.role}
                     taskCompleted={member.taskCompleted}
                     isActive={member.isActive}
                     bio={member.bio}
+                    onRemove={handleRemoveMember}
                 />
             ))}
         </>
